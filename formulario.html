@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de Formulários HTML</title>
+    <style>
+        /* Estilos básicos para melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Estilização dos formulários */
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilização dos campos */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Exceções para inputs específicos */
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        /* Estilo para botões */
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para fieldset */
+        fieldset {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guia Completo de Formulários HTML</h1>
+
+    <!-- 1. Formulário Básico -->
+    <h2>1. Formulário Básico</h2>
+    <!-- O atributo action define para onde os dados serão enviados -->
+    <!-- O atributo method define o método HTTP (GET ou POST) -->
+    <form action="/processar" method="POST">
+        <!-- Labels associados aos inputs usando 'for' e 'id' -->
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <!-- input type="text" é o campo de texto básico -->
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <!-- input type="email" valida automaticamente o formato do email -->
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!-- 2. Diferentes Tipos de Input -->
+    <h2>2. Tipos de Input</h2>
+    <form>
+        <fieldset>
+            <legend>Tipos de Input Modernos</legend>
+
+            <!-- Input de número -->
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" max="120">
+            </div>
+
+            <!-- Input de data -->
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento">
+            </div>
+
+            <!-- Input de cor -->
+            <div class="form-group">
+                <label for="cor">Cor Favorita:</label>
+                <input type="color" id="cor" name="cor">
+            </div>
+
+            <!-- Input range (slider) -->
+            <div class="form-group">
+                <label for="satisfacao">Nível de Satisfação:</label>
+                <input type="range" id="satisfacao" name="satisfacao" min="0" max="10">
+            </div>
+
+            <!-- Input de arquivo -->
+            <div class="form-group">
+                <label for="arquivo">Upload de Arquivo:</label>
+                <input type="file" id="arquivo" name="arquivo">
+            </div>
+
+            <!-- Input de busca -->
+            <div class="form-group">
+                <label for="busca">Buscar:</label>
+                <input type="search" id="busca" name="busca">
+            </div>
+
+            <!-- Input de URL -->
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website" placeholder="https://exemplo.com">
+            </div>
+
+            <!-- Input de telefone -->
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="[0-9]{2}-[0-9]{9}">
+            </div>
+        </fieldset>
+    </form>
+
+    <!-- 3. Seleções e Opções -->
+    <h2>3. Elementos de Seleção</h2>
+    <form>
+        <!-- Select (menu dropdown) -->
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <select id="pais" name="pais">
+                <option value="">Selecione um país</option>
+                <option value="br">Brasil</option>
+                <option value="pt">Portugal</option>
+                <option value="us">Estados Unidos</option>
+            </select>
+        </div>
+
+        <!-- Radio buttons -->
+        <fieldset>
+            <legend>Gênero</legend>
+            <div>
+                <input type="radio" id="masculino" name="genero" value="M">
+                <label for="masculino">Masculino</label>
+            </div>
+            <div>
+                <input type="radio" id="feminino" name="genero" value="F">
+                <label for="feminino">Feminino</label>
+            </div>
+            <div>
+                <input type="radio" id="outro" name="genero" value="O">
+                <label for="outro">Outro</label>
+            </div>
+        </fieldset>
+
+        <!-- Checkboxes -->
+        <fieldset>
+            <legend>Interesses</legend>
+            <div>
+                <input type="checkbox" id="tecnologia" name="interesses" value="tech">
+                <label for="tecnologia">Tecnologia</label>
+            </div>
+            <div>
+                <input type="checkbox" id="esportes" name="interesses" value="sports">
+                <label for="esportes">Esportes</label>
+            </div>
+            <div>
+                <input type="checkbox" id="musica" name="interesses" value="music">
+                <label for="musica">Música</label>
+            </div>
+        </fieldset>
+    </form>
+
+    <!-- 4. Área de Texto e Elementos Complexos -->
+    <h2>4. Elementos Complexos</h2>
+    <form>
+        <!-- Textarea para texto longo -->
+        <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" cols="50" 
+                      placeholder="Digite sua mensagem aqui"></textarea>
+        </div>
+
+        <!-- Datalist para sugestões -->
+        <div class="form-group">
+            <label for="linguagem">Linguagem de Programação:</label>
+            <input list="linguagens" id="linguagem" name="linguagem">
+            <datalist id="linguagens">
+                <option value="JavaScript">
+                <option value="Python">
+                <option value="Java">
+                <option value="C++">
+                <option value="PHP">
+            </datalist>
+        </div>
+    </form>
+
+    <!-- 5. Formulário com Validação -->
+    <h2>5. Formulário com Validação</h2>
+    <form>
+        <fieldset>
+            <legend>Formulário com Validação</legend>
+
+            <!-- Required - campo obrigatório -->
+            <div class="form-group">
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario" required 
+                       minlength="3" maxlength="20">
+            </div>
+
+            <!-- Pattern - validação por expressão regular -->
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required 
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                       title="Deve conter pelo menos um número, uma letra maiúscula e minúscula, e no mínimo 8 caracteres">
+            </div>
+
+            <!-- Min e Max para números -->
+            <div class="form-group">
+                <label for="quantidade">Quantidade (1-5):</label>
+                <input type="number" id="quantidade" name="quantidade" 
+                       min="1" max="5">
+            </div>
+        </fieldset>
+
+        <!-- Botões de controle -->
+        <div class="form-group">
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </div>
+    </form>
+
+    <!-- 6. Explicação dos Atributos Importantes -->
+    <h2>6. Atributos Importantes em Formulários</h2>
+    <ul>
+        <li><strong>required</strong>: Torna o campo obrigatório</li>
+        <li><strong>placeholder</strong>: Texto de exemplo no campo</li>
+        <li><strong>pattern</strong>: Validação por expressão regular</li>
+        <li><strong>min/max</strong>: Valores mínimo e máximo para números</li>
+        <li><strong>minlength/maxlength</strong>: Limites de caracteres</li>
+        <li><strong>autocomplete</strong>: Controla o autopreenchimento</li>
+        <li><strong>disabled</strong>: Desabilita o campo</li>
+        <li><strong>readonly</strong>: Torna o campo somente leitura</li>
+        <li><strong>multiple</strong>: Permite múltiplas seleções</li>
+        <li><strong>autofocus</strong>: Foca o campo ao carregar a página</li>
+    </ul>
+
+    <!-- 7. Dicas de Acessibilidade -->
+    <h2>7. Dicas de Acessibilidade em Formulários</h2>
+    <ul>
+        <li>Sempre use labels associados aos inputs</li>
+        <li>Agrupe campos relacionados com fieldset e legend</li>
+        <li>Use atributos aria quando necessário</li>
+        <li>Forneça feedback claro de erros e sucessos</li>
+        <li>Mantenha uma ordem lógica de tabulação</li>
+        <li>Use cores com contraste adequado</li>
+    </ul>
+</body>
+</html>

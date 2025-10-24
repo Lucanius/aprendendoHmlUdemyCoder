@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo Tabelas em HTML</title>
+    
+    <!-- Estilos CSS para as tabelas -->
+    <style>
+        /* Estilo básico para todas as tabelas */
+        table {
+            border-collapse: collapse; /* Une as bordas das células */
+            width: 100%; /* Tabela ocupa 100% da largura disponível */
+            margin-bottom: 20px; /* Espaço abaixo da tabela */
+        }
+
+        /* Estilo para células e bordas */
+        th, td {
+            border: 1px solid #ddd; /* Borda cinza clara */
+            padding: 8px; /* Espaçamento interno */
+            text-align: left; /* Alinhamento do texto à esquerda */
+        }
+
+        /* Estilo para cabeçalhos */
+        th {
+            background-color: #f2f2f2; /* Fundo cinza claro */
+            font-weight: bold; /* Texto em negrito */
+        }
+
+        /* Efeito zebra nas linhas */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover nas linhas */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Classe para células centralizadas */
+        .centro {
+            text-align: center;
+        }
+
+        /* Classe para células com destaque */
+        .destaque {
+            background-color: #ffffcc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guia Completo de Tabelas HTML</h1>
+
+    <!-- Tabela Básica -->
+    <h2>1. Tabela Simples</h2>
+    <table>
+        <!-- thead: agrupa os elementos do cabeçalho -->
+        <thead>
+            <tr> <!-- tr: define uma linha -->
+                <th>Nome</th> <!-- th: célula de cabeçalho -->
+                <th>Idade</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <!-- tbody: agrupa os elementos do corpo -->
+        <tbody>
+            <tr>
+                <td>João</td> <!-- td: célula de dados -->
+                <td>25</td>
+                <td>São Paulo</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>30</td>
+                <td>Rio de Janeiro</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Tabela com colspan e rowspan -->
+    <h2>2. Tabela com Células Mescladas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Informações Pessoais</th> <!-- colspan: mescla colunas -->
+                <th>Contato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">João Silva</td> <!-- rowspan: mescla linhas -->
+                <td>25 anos</td>
+                <td>joao@email.com</td>
+            </tr>
+            <tr>
+                <td>Solteiro</td>
+                <td>(11) 99999-9999</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Tabela com caption e thead, tbody, tfoot -->
+    <h2>3. Tabela Completa com Cabeçalho e Rodapé</h2>
+    <table>
+        <!-- caption: título da tabela -->
+        <caption>Relatório de Vendas</caption>
+        
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Notebook</td>
+                <td class="centro">2</td>
+                <td>R$ 2.500,00</td>
+                <td>R$ 5.000,00</td>
+            </tr>
+            <tr>
+                <td>Smartphone</td>
+                <td class="centro">3</td>
+                <td>R$ 1.500,00</td>
+                <td>R$ 4.500,00</td>
+            </tr>
+            <tr>
+                <td>Tablet</td>
+                <td class="centro">1</td>
+                <td>R$ 1.000,00</td>
+                <td>R$ 1.000,00</td>
+            </tr>
+        </tbody>
+        
+        <!-- tfoot: agrupa os elementos do rodapé -->
+        <tfoot>
+            <tr>
+                <td colspan="3"><strong>Total Geral</strong></td>
+                <td class="destaque"><strong>R$ 10.500,00</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- Tabela com grupos de colunas -->
+    <h2>4. Tabela com Grupos de Colunas</h2>
+    <table>
+        <!-- colgroup: permite estilizar colunas específicas -->
+        <colgroup>
+            <col style="width: 40%"> <!-- Define largura da primeira coluna -->
+            <col style="width: 30%"> <!-- Define largura da segunda coluna -->
+            <col style="width: 30%"> <!-- Define largura da terceira coluna -->
+        </colgroup>
+        
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>iPhone</td>
+                <td>Eletrônicos</td>
+                <td>R$ 5.000,00</td>
+            </tr>
+            <tr>
+                <td>MacBook</td>
+                <td>Computadores</td>
+                <td>R$ 12.000,00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Explicação dos elementos -->
+    <h2>5. Elementos de Tabela HTML</h2>
+    <ul>
+        <li><code>&lt;table&gt;</code> - Define uma tabela</li>
+        <li><code>&lt;caption&gt;</code> - Define um título/legenda para a tabela</li>
+        <li><code>&lt;thead&gt;</code> - Agrupa o conteúdo do cabeçalho</li>
+        <li><code>&lt;tbody&gt;</code> - Agrupa o conteúdo do corpo</li>
+        <li><code>&lt;tfoot&gt;</code> - Agrupa o conteúdo do rodapé</li>
+        <li><code>&lt;tr&gt;</code> - Define uma linha</li>
+        <li><code>&lt;th&gt;</code> - Define uma célula de cabeçalho</li>
+        <li><code>&lt;td&gt;</code> - Define uma célula de dados</li>
+        <li><code>&lt;colgroup&gt;</code> e <code>&lt;col&gt;</code> - Definem grupos de colunas</li>
+    </ul>
+
+    <!-- Dicas de Acessibilidade -->
+    <h2>6. Dicas de Acessibilidade</h2>
+    <ul>
+        <li>Use <code>&lt;th&gt;</code> para cabeçalhos de linha e coluna</li>
+        <li>Use <code>scope="col"</code> ou <code>scope="row"</code> em células de cabeçalho</li>
+        <li>Adicione <code>&lt;caption&gt;</code> para descrever o conteúdo da tabela</li>
+        <li>Mantenha a estrutura da tabela simples e lógica</li>
+    </ul>
+</body>
+</html>
