@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Imagens em HTML e CSS</title>
+    <style>
+        /* Estilos básicos para melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        /* 1. Estilos básicos para imagens */
+        .img-basica {
+            /* Largura máxima para responsividade */
+            max-width: 100%;
+            /* Mantém a proporção da imagem */
+            height: auto;
+            /* Borda simples */
+            border: 2px solid #333;
+        }
+
+        /* 2. Imagem com sombra e borda arredondada */
+        .img-estilizada {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .img-estilizada:hover {
+            transform: scale(1.05);
+        }
+
+        /* 3. Container para imagem de fundo */
+        .bg-container {
+            width: 100%;
+            height: 300px;
+            background-image: url('imagens/marketing.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* 4. Filtros em imagens */
+        .img-filtros {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+
+        .grayscale { filter: grayscale(100%); }
+        .blur { filter: blur(2px); }
+        .brightness { filter: brightness(150%); }
+        .contrast { filter: contrast(180%); }
+        .sepia { filter: sepia(100%); }
+
+        /* 5. Grid de imagens */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .img-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* 6. Imagem responsiva */
+        .img-responsiva {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 7. Overlay em imagem */
+        .img-overlay-container {
+            position: relative;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+
+        .img-overlay-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .img-overlay-container:hover .overlay {
+            opacity: 1;
+        }
+
+        /* 8. Figura com legenda */
+        figure {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guia Completo: Imagens em HTML e CSS</h1>
+
+    <!-- 1. Imagem Básica -->
+    <section>
+        <h2>1. Imagem Básica</h2>
+        <!-- O atributo alt é essencial para acessibilidade -->
+        <!-- width e height ajudam a evitar layout shift -->
+        <img src="imagens/marketing.png" 
+             alt="Marketing Digital" 
+             class="img-basica"
+             width="400"
+             height="auto">
+        <p>
+            <strong>Explicação:</strong> Uso básico da tag img com atributos essenciais:
+            <ul>
+                <li><code>src</code>: caminho da imagem</li>
+                <li><code>alt</code>: texto alternativo para acessibilidade</li>
+                <li><code>width/height</code>: dimensões da imagem</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 2. Imagem Estilizada -->
+    <section>
+        <h2>2. Imagem com Efeitos</h2>
+        <img src="imagens/marketing.png" 
+             alt="Marketing Digital Estilizado" 
+             class="img-estilizada">
+        <p>
+            <strong>Explicação:</strong> Imagem com efeitos CSS:
+            <ul>
+                <li>Borda arredondada (border-radius)</li>
+                <li>Sombra (box-shadow)</li>
+                <li>Efeito hover com escala (transform)</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 3. Imagem como Background -->
+    <section>
+        <h2>3. Imagem como Plano de Fundo</h2>
+        <div class="bg-container"></div>
+        <p>
+            <strong>Explicação:</strong> Usando imagem como background:
+            <ul>
+                <li><code>background-image</code>: define a imagem</li>
+                <li><code>background-size: cover</code>: cobre todo o container</li>
+                <li><code>background-position: center</code>: centraliza a imagem</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 4. Filtros em Imagens -->
+    <section>
+        <h2>4. Filtros CSS em Imagens</h2>
+        <div>
+            <img src="imagens/marketing.png" alt="Escala de cinza" class="img-filtros grayscale">
+            <img src="imagens/marketing.png" alt="Desfoque" class="img-filtros blur">
+            <img src="imagens/marketing.png" alt="Brilho" class="img-filtros brightness">
+            <img src="imagens/marketing.png" alt="Contraste" class="img-filtros contrast">
+            <img src="imagens/marketing.png" alt="Sépia" class="img-filtros sepia">
+        </div>
+        <p>
+            <strong>Explicação:</strong> Diferentes filtros CSS:
+            <ul>
+                <li>grayscale(): escala de cinza</li>
+                <li>blur(): desfoque</li>
+                <li>brightness(): brilho</li>
+                <li>contrast(): contraste</li>
+                <li>sepia(): efeito sépia</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 5. Grid de Imagens -->
+    <section>
+        <h2>5. Grid de Imagens</h2>
+        <div class="img-grid">
+            <img src="imagens/marketing.png" alt="Marketing 1">
+            <img src="imagens/marketing.png" alt="Marketing 2">
+            <img src="imagens/marketing.png" alt="Marketing 3">
+            <img src="imagens/marketing.png" alt="Marketing 4">
+        </div>
+        <p>
+            <strong>Explicação:</strong> Grid responsivo de imagens:
+            <ul>
+                <li>Usa CSS Grid para layout</li>
+                <li>Colunas se ajustam automaticamente</li>
+                <li>object-fit mantém proporção</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 6. Picture Element -->
+    <section>
+        <h2>6. Elemento Picture para Responsividade</h2>
+        <picture>
+            <source media="(min-width: 800px)" srcset="imagens/marketing.png">
+            <source media="(min-width: 400px)" srcset="imagens/marketing.png">
+            <img src="imagens/marketing.png" alt="Marketing Responsivo" class="img-responsiva">
+        </picture>
+        <p>
+            <strong>Explicação:</strong> Elemento picture para imagens responsivas:
+            <ul>
+                <li>Permite diferentes imagens para diferentes telas</li>
+                <li>Usa media queries para selecionar a imagem apropriada</li>
+                <li>Fornece fallback com tag img</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 7. Imagem com Overlay -->
+    <section>
+        <h2>7. Imagem com Overlay</h2>
+        <div class="img-overlay-container">
+            <img src="imagens/marketing.png" alt="Marketing com Overlay">
+            <div class="overlay">
+                <h3>Efeito Overlay</h3>
+            </div>
+        </div>
+        <p>
+            <strong>Explicação:</strong> Overlay com efeito hover:
+            <ul>
+                <li>Usa posicionamento absoluto</li>
+                <li>Transição suave na opacidade</li>
+                <li>Texto centralizado sobre a imagem</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- 8. Figura com Legenda -->
+    <section>
+        <h2>8. Figura com Legenda</h2>
+        <figure>
+            <img src="imagens/marketing.png" alt="Marketing Digital" class="img-basica">
+            <figcaption>Figura 1: Exemplo de marketing digital moderno</figcaption>
+        </figure>
+        <p>
+            <strong>Explicação:</strong> Usando figure e figcaption:
+            <ul>
+                <li>figure agrupa imagem e legenda</li>
+                <li>figcaption adiciona descrição</li>
+                <li>Melhora a semântica do documento</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- Dicas de Acessibilidade -->
+    <section>
+        <h2>Dicas de Acessibilidade para Imagens</h2>
+        <ul>
+            <li>Sempre use atributo alt com descrição significativa</li>
+            <li>Use figure e figcaption para imagens que precisam de contexto</li>
+            <li>Considere usar aria-labels quando necessário</li>
+            <li>Mantenha bom contraste em textos sobre imagens</li>
+            <li>Teste o site sem imagens para garantir boa experiência</li>
+        </ul>
+    </section>
+
+    <!-- Dicas de Performance -->
+    <section>
+        <h2>Dicas de Performance com Imagens</h2>
+        <ul>
+            <li>Otimize as imagens antes de usar (comprima sem perder qualidade)</li>
+            <li>Use formatos modernos como WebP quando possível</li>
+            <li>Especifique width e height para evitar layout shift</li>
+            <li>Use loading="lazy" para imagens abaixo da dobra</li>
+            <li>Considere usar srcset para diferentes resoluções</li>
+        </ul>
+    </section>
+</body>
+</html>
